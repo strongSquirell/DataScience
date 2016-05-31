@@ -1,2 +1,2 @@
-# DataScience
-This repository will contain systematization of my knowledge about Data Science.
+# Statistics
+This folder will contain some information about descriptive statistics, probability destributions and hypothesis testing.
