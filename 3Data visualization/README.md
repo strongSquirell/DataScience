@@ -1,2 +1,2 @@
-# DataScience
-This repository will contain systematization of my knowledge about Data Science.
+# Data visualization
+This repository will contain information about best practises in data visualization and how to do it in R and Python.
