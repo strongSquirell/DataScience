@@ -1,2 +1,2 @@
-# DataScience
-This repository will contain systematization of my knowledge about Data Science.
+# Linear regression
+This repository will contain information about linear regression and scripts.
