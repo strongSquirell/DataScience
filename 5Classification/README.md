@@ -1,2 +1,2 @@
-# DataScience
-This repository will contain systematization of my knowledge about Data Science.
+# Classification
+This folder will contain information about supervised learning - classification.
