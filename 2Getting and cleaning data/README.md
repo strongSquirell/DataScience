@@ -86,7 +86,7 @@ Checking for and creating directories
 
   * _url_ A character string naming the URL of a resource to be downloaded.
   * _destfile_ A character string with the name where the downloaded file is saved. Tilde-expansion is performed.
-  * _method_ Method to be used for downloading files. Current download methods are "internal", "wininet" (Windows only) "libcurl", "wget" and "curl", and there is a value "auto": see ‘Details’ and ‘Note’.
+  * _method_ Method to be used for downloading files. Current download methods are "internal", "wininet" (Windows only) "libcurl", "wget" and "curl", and there is a value "auto": see â€˜Detailsâ€™ and â€˜Noteâ€™.
   * _quiet_ If TRUE, suppress status messages (if any), and the progress bar.
   * _mode_ character. The mode with which to write the file. Useful values are "w", "wb" (binary), "a" (append) and "ab". Only used for the "internal" method.
   * _cacheOK_ logical. Is a server-side cached value acceptable?
@@ -95,7 +95,11 @@ Checking for and creating directories
 ##### Download File from the ftp server
 The File Transfer Protocol (FTP) is a standard network protocol used to transfer computer files between a client and server on a computer network.
 
+<<<<<<< HEAD
 ```
+=======
+``` 
+>>>>>>> 35ada25abf3bac2d5f8a9e8eb06df79567aed245
   library(RCurl)
   url <- "ftp://yourServer"
   userpwd <- "yourUser:yourPass"
