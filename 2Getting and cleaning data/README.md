@@ -16,23 +16,18 @@ The tidy data:
   4. If you have multiple tables, they should include a column in the table that allows them to be linked
 
 ## Local files
-  read.table(file, header = FALSE, sep = "", quote = "\"'",
-           dec = ".", numerals = c("allow.loss", "warn.loss", "no.loss"),
-           row.names, col.names, as.is = !stringsAsFactors,
-           na.strings = "NA", colClasses = NA, nrows = -1,
-           skip = 0, check.names = TRUE, fill = !blank.lines.skip,
-           strip.white = FALSE, blank.lines.skip = TRUE,
-           comment.char = "#",
-           allowEscapes = FALSE, flush = FALSE,
-           stringsAsFactors = default.stringsAsFactors(),
-           fileEncoding = "", encoding = "unknown", text, skipNul = FALSE)
-
+  read.table(file, header = FALSE, sep = "", quote = "\"'", dec = ".", numerals = c("allow.loss", "warn.loss", "no.loss"),
+             row.names, col.names, as.is = !stringsAsFactors, na.strings = "NA", colClasses = NA, nrows = -1,
+             skip = 0, check.names = TRUE, fill = !blank.lines.skip, strip.white = FALSE, blank.lines.skip = TRUE,
+             comment.char = "#", allowEscapes = FALSE, flush = FALSE, stringsAsFactors = default.stringsAsFactors(),
+             fileEncoding = "", encoding = "unknown", text, skipNul = FALSE)
+__CSV__
   read.csv(file, header = TRUE, sep = ",", quote = "\"",
-         dec = ".", fill = TRUE, comment.char = "", ...)
-
-  read.delim(file, header = TRUE, sep = "\t", quote = "\"",
            dec = ".", fill = TRUE, comment.char = "", ...)
-
+__Delim__ (for reading delimited files, defaulting to the TAB character for the delimiter)
+  read.delim(file, header = TRUE, sep = "\t", quote = "\"",
+             dec = ".", fill = TRUE, comment.char = "", ...)
+ 
   * _file_ the name of the file which the data are to be read from. 
   * _header_ a logical value indicating whether the file contains the names of the variables as its first line. 
   * _sep_ the field separator character. 
@@ -60,7 +55,10 @@ The tidy data:
   * _skipNul_ logical: should nuls be skipped?
   * _..._ Further arguments to be passed to read.table.
 
-
+__Excel__
+  library(xlsx)
+  read.xlsx(file, sheetIndex, sheetName=NULL, rowIndex=NULL, startRow=NULL, endRow=NULL, colIndex=NULL,
+            as.data.frame=TRUE, header=TRUE, colClasses=NA, keepFormulas=FALSE, encoding="unknown", ...)
 ## XML, JSON files
 
 ## From SQL
@@ -79,6 +77,8 @@ Path:
 Checking for and creating directories
   * file.exists("directoryName")
   * dir.create("directoryName")
+
+dateDownloaded <- Date()
 
 ##### Download File from the Internet
   download.file(url, destfile, method, quiet = FALSE, mode = "w", cacheOK = TRUE,
