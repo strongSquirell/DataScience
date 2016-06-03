@@ -25,4 +25,17 @@ The tidy data:
 
 ## Download from web, ftp
 
+getwd()
+setwd("C:\Users\Downloads")
+
+Path:
+  * Relative - ".\data"
+  * Absolute - "C:\Users\data"
+
+Checking for and creating directories
+  * file.exists("directoryName")
+  * dir.create("directoryName")
+
+### Download File from the Internet
+### Download File from the ftp server
 ## Multiple files, zip
