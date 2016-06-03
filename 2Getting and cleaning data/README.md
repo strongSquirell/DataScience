@@ -51,7 +51,7 @@ Checking for and creating directories
 ##### Download File from the ftp server
 The File Transfer Protocol (FTP) is a standard network protocol used to transfer computer files between a client and server on a computer network.
 
-``` R # downloading complete folders via ftp with R
+``` 
   library(RCurl)
   url <- "ftp://yourServer"
   userpwd <- "yourUser:yourPass"
