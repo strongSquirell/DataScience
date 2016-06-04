@@ -1,5 +1,5 @@
 # Getting and cleaning data
-This folder contains information how to get and clean data in R and Python(will add later).
+This folder contains information how to get and clean data in R and Python(will be added later).
 
 __Data__ are values of qualitative or quantitative variables, belonging to a set of items.
 
@@ -70,6 +70,28 @@ __Excel__
 ``` 
 ## XML, JSON files
 
+__XML__
+__Extensible Markup Language (XML)__ is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.
+Components:
+  * Markup - labels that gives the text structure
+  * Content - the actual text of the document
+
+  * Tags corresponds to general labels:
+    * Start tags <section>
+    * End tags </section>
+    * Empty tags <line-break />
+  * Elements are specific examples of tags
+  * Attributes are components of the label
+```
+library(XML)
+fileUrl <- "http://www. ..."
+doc <- xmlTreeParse(fileUrl, useInternal = T)
+rootNode <- xmlRoot(doc)
+xmlName(rootNode)
+rootNode[[1]]
+rootNode[[1]][[1]]
+xmlSApply(rootNode, xmlValue)
+```
 ## From SQL
 
 ## HDF5 files
