@@ -85,21 +85,45 @@ Components:
 ```
 library(XML)
 fileUrl <- "http://www. ..."
-doc <- xmlTreeParse(fileUrl, useInternal = T)
+doc <- xmlTreeParse(fileUrl, useInternal = T) # htmlTreeParse(fileUrl, useInternal = T)
 rootNode <- xmlRoot(doc)
 xmlName(rootNode)
 rootNode[[1]]
 rootNode[[1]][[1]]
 xmlSApply(rootNode, xmlValue)
+xpathSApply(rootNode, "//price", xmlValue)
+```
+
+__JSON__
+  * Javascript Object Notation
+  * Lightweight data storage
+  * Common format for data from application programming interfaces (APIs)
+  * Similar structure to XML but different syntax/format
+  * Data stored as
+    - Numbers (double)
+    - Strings (double quoted)
+    - Boolean (true or false)
+    - Array (ordered, comma separated enclosed in square brackets)
+    - Object (unordered, comma separated collection of key:value pairs in square brackets))
+
+```
+library(jsonlite)
+jsonData <- fromJSON("https://api...")
+names(jsonData)
+jsonData$owner$login
+myJson <- toJson(iris, pretty = T) # writing data frames to JSON
+cat(myJson)
+iris2 <- fromJSON(myJson)          # convert back to JSON 
 ```
 ## From SQL
 
 ## HDF5 files
 
 ## Download from web, ftp
-
+```
 getwd()
 setwd("C:\Users\Downloads")
+```
 
 Path:
   * Relative - ".\data"
@@ -112,8 +136,10 @@ Checking for and creating directories
 dateDownloaded <- Date()
 
 ##### Download File from the Internet
+```
   download.file(url, destfile, method, quiet = FALSE, mode = "w", cacheOK = TRUE,
                 extra = getOption("download.file.extra"))
+```
 
   * _url_ A character string naming the URL of a resource to be downloaded.
   * _destfile_ A character string with the name where the downloaded file is saved. Tilde-expansion is performed.
