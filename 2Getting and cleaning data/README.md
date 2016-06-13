@@ -116,8 +116,57 @@ cat(myJson)
 iris2 <- fromJSON(myJson)          # convert back to JSON 
 ```
 ## From SQL
+__mySQL__ is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards-compliance. As a database server, its primary function is to store data securely, supporting best practices, and to allow for retrieval at the request of other software applications.
+
+Data are structured in
+  * Databases
+  * Tables within databases
+  * Fields within tables
+
+```
+install.packages("RMySQL")
+DB <- dbConnect(MySQL(), user = "genome",
+                hist = "genome-mysql.cse.uscs.edu")
+result <- dbGetQuery(DB, "show databases;")
+allTables <- dbListTables(DB)
+dbListFields(DB, "TableName")
+dbGetQuery(DB, "select count(*) from Table1")
+query <- dbSentQuery(DB, "select * from ... where")
+res <- fetch(query)
+dbClearResult(query)
+dbDisconnect(ucscDb)
+```
+Do not acces that server to delete, add or join things. 
 
 ## HDF5 files
+__Hierarchical Data Format (HDF)__ is a set of file formats (HDF4, HDF5) designed to store and organize large amounts of data.
+  * Supports storing a range of data types
+
+HDF5 simplifies the file structure to include only two major types of object:
+  * _Datasets_multidimensional arrays of data elemens with metadata
+    * Have a _header_ with name, datatype, dataspace, and storage layout
+    * Have a _data array_ with the data
+  * _Groups_ which are container structures which can hold datasets and other groups
+    * Have a _group header_ with group name and list of attributes
+    * Have a _group symbol table_ with a list of objects in group
+
+```
+source("http://bioconductor.org/bioLite.R")
+biolite("rhdf5")
+library(rhdf5)
+created = h5createFile("example.h5")
+created = h5createGroup("example.h5", "foo")
+created = h5createGroup("example.h5", "foo/baa")
+h5ls("example.h5")
+h5write(A, "example.h5", "foo/A")                 # write to group matrix A
+h5write(B, "example.h5", "foo/baa/B")             # write to group array B (attr(B, "scale") <- "liter")
+h5write(df, "example.h5", "df")                   # write a data set df
+readA= h5read("example.h5", "foo/A")              # read matrix A
+h5write(c(12,13,14), "example.h5",                # write and read chunks
+        "foo/A", index = list(1:3,1))
+h5read("example.h5", "foo/A")
+```
+hdf5 can be used to optimize reading/writing from disc in R
 
 ## Download from web, ftp
 ```
@@ -163,6 +212,45 @@ The File Transfer Protocol (FTP) is a standard network protocol used to transfer
   con <- getCurlHandle( ftp.use.epsv = FALSE) 
   contents <- mapply(download.file, filenames, basename(filenames)) 
   names(contents) <- filenames[1:length(contents)] 
+```
+
+## Webscraping
+__Webscraping__ - programatically extracting data from the HTML code of websites.
+
+```
+url <- "http://"
+con = url(url)                                         # 1st method
+htmlCode = readLines(con)
+close(con)
+
+library(XML)                                           # parsing with XML
+html <- htmlTreeParse(url, useInternalNodes = T)
+xpathSApply(html, "//title", xmlValue)
+
+library(httr)                                          # GET from the httr package
+html2 = GET(url)
+content2 = content(html2, as = "text")
+parsedHtml - htmlParse(content2, asText = TRUE)
+xpathSApply(html, "//title", xmlValue)
+
+pg2 = GET(url, authenticate("user", "passwd"))         # accessing websites with passwords
+
+google = handle("http://google.com")                   # using handles
+pg1 = GET(handle = google, path = "/")
+pg2 = GET(handle = google, path = "search") 
+```
+
+## Application Programming Interfaces(Twitter)
+
+  * Creating an application (https://dev.twitter.com/apps)
+  * Accesing Twitter from R
+
+```
+myapp = oauth_app("twitter", key = "yourConsumerKeyHere",
+                   secret = "yourConsumerSecretHere")
+sig = sign_oauth1.0(myapp, token = "yourTokenHere",
+                    token_secret = "yourTokenSecretHere")
+hameTL = GET("https://api.")
 ```
 
 ## Multiple files, zip
