@@ -16,3 +16,34 @@ __Level of measurement__
 
 _Data Matrix_ - overview of all cases and variables. The values in the cells of this table are called _observations_.  
 _Frequency Table_ shows how the values are distributed over the cases (frequency, percentage, cumulative percentage).
+
+__The distribution of a variable__ is a description of the relative numbers of times each possible outcome will occur in a number of trials.  
+Summarizing a distribution:
+  * graph (histogram, pie chart, dot plot, bar graph, ...)
+  * center tendency (mode, median, mean) + variability
+
+_Mode_ - value that occurs most frequently (nominal, ordinal level).  
+_Median_ - the middle value of your observation when arranged from the smallest to the largest.  
+_Mean_ - the sum of all the values divided by the number of observations.  
+
+__Variability__
+  * _range_ - highest value - lowest value
+  * _interquantile range_ divides values in 4 quantiles, Q1, Q2, Q3. IQR = Q3-Q1.  
+An _outlier_ is an observation that lies an abnormal distance from other values in a random sample from a population(=value lower than Q1 - 1.5*IQR or higher Q3 + 1.5*IQR).
+  * _box plot_ - graph to describe center, variability and outliers.  
+  * _variance_ and _standart deviation_ - measure of dispersion (the average distance of an observation from the mean).
+_z-score_ - number of standart deviations removed from the mean.  
+
+```
+x<-rnorm(10)
+names(sort(-table(x)))[1]    # Mode
+median(x)                    # Median
+mean(x)                      # Mean
+var(x)                       # Variation
+sd(x)                        # Standard deviation
+fivenum(x)                   # Tukey's five number summary, usefull for boxplots
+IQR(x)                       # Interquartile range
+quantile(x)                  # Compute sample quantiles
+range(x)                     # Get minimum and maximum
+(x[i]-mean(x))/sd(x)         # z-score
+```
