@@ -10,3 +10,11 @@ __Level of measurement__
 |              | ordinal  | +          | +     | -                 | -                     | win     |
 | Quantitative | interval | +          | +     | +                 | -                     | age     |
 |              | ratio    | +          | +     | +                 | +                     | height  |
+
+
+|              |          | Difference | Order | Similar intervals | Meaningful zero point |
+|--------------|----------|------------|-------|-------------------|-----------------------|
+| Cathegorical | nominal  | +          | -     | -                 | -                     |
+|              | ordinal  | +          | +     | -                 | -                     |
+| Quantitative | interval | +          | +     | +                 | -                     |
+|              | ratio    | +          | +     | +                 | +                     |
