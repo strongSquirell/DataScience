@@ -1,5 +1,5 @@
-# Getting and cleaning data
-This folder contains information how to get and clean data in R and Python(will be added later).
+# Getting data
+This folder contains information how to get data in R and Python(will be added later).
 
 __Data__ are values of qualitative or quantitative variables, belonging to a set of items.
 
