@@ -143,7 +143,7 @@ __Hierarchical Data Format (HDF)__ is a set of file formats (HDF4, HDF5) designe
   * Supports storing a range of data types
 
 HDF5 simplifies the file structure to include only two major types of object:
-  * _Datasets_multidimensional arrays of data elemens with metadata
+  * _Datasets_ multidimensional arrays of data elemens with metadata
     * Have a _header_ with name, datatype, dataspace, and storage layout
     * Have a _data array_ with the data
   * _Groups_ which are container structures which can hold datasets and other groups
