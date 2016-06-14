@@ -1,2 +1,12 @@
 # Statistics
-This folder will contain some information about descriptive statistics, probability destributions and hypothesis testing.
+
+_Variables_ <- characteristics of something or someone.
+_Cases_ <- something or someone.
+
+__Level of measurement__
+|              |          | Difference | Order | Similar intervals | Meaningful zero point | Example |
+|--------------|----------|------------|-------|-------------------|-----------------------|---------|
+| Cathegorical | nominal  | +          | -     | -                 | -                     | gender  |
+|              | ordinal  | +          | +     | -                 | -                     | win     |
+| Quantitative | interval | +          | +     | +                 | -                     | age     |
+|              | ratio    | +          | +     | +                 | +                     | height  |
