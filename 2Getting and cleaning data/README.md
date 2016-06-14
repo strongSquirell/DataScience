@@ -250,7 +250,33 @@ myapp = oauth_app("twitter", key = "yourConsumerKeyHere",
                    secret = "yourConsumerSecretHere")
 sig = sign_oauth1.0(myapp, token = "yourTokenHere",
                     token_secret = "yourTokenSecretHere")
-hameTL = GET("https://api.")
+homeTL = GET("https://api.twitter.com/1.1/statuses/home_timeline.json", sig)
 ```
+  * Converting the json object
+```
+json1 = content(homeTL)
+json2 = jsonlite::fromJSON(toJSON(json1))
+json2[1, 1:4]
+```
+httr allows GET, POST, PUT, DELETE request if you are authotized
 
 ## Multiple files, zip
+__ZIP__
+
+```
+data <- read.table(unz("Sales.zip", "Sales.dat"), nrows=10, header=T, quote="\"", sep=",")
+```
+
+__Multiple files__
+
+```
+temp = list.files(pattern="*.csv")
+for (i in 1:length(temp)) assign(temp[i], read.csv(temp[i]))
+```
+or
+```
+emp = list.files(pattern="*.csv")
+list2env(
+  lapply(setNames(temp, make.names(gsub("*.csv$", "", temp))), 
+         read.csv), envir = .GlobalEnv)
+```
