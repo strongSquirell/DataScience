@@ -177,7 +177,37 @@ The lattice plotting system is implemented using the following packages:
   * _lattice:_ contains code for producing Trellis graphics, which are independent of the "base" graphics system; includes functions like __xyplot, bwplot, levelplot__
   * _grid:_ implements a different graphing system independent of the "base" system; the lattice package builds on top of grid; we seldom call functions from the grid package directly
 
+_Lattice plotting functions_
+  * __xyplot__ this is the main function for creating scatterplots 
+  * __bwplot__ box-and- whiskers plots 
+  * __histogram__ histograms
+  * __stripplot__ like a boxplot but with actual points
+  * __dotplot__ plot dots on "violin strings"
+  * __splom__ scatterplot matrix; like pairs in base plotting system
+  * __levelplot, contourplot__ for plotting image data
 
+Luttice functions generally take a formula for their first argument(y ~ x)  
+```
+library(lattice)
+data <- transform(data, z = factor(z))
+xyplot(y ~ x | z, data, layout = c(3,1))                             # splited by z
+```
+
+Lattice behavior
+  * lattice graphics function return an object of class trellis
+  * the print methods for lattice functions actually do not work of plotting the data on the graphics device
+  * on the command line, trellis objects are auto-printed so that it appears the function is plotting the data
+
+Lattice panel functions
+  * lattice functions have a panel function which controls what happens inside each panel of the plot
+  * the _lattice_ package comes with default panel functions, but you can supply your own if you want to customize what happens in each panel
+  * panel functions receive the x/y coordinates of the data points in their panel
+```
+xyplot(y ~ x | f, panel = function(x, y, ...){
+       panel.xyplot(x, y, ...)
+       panel.abline( h = median(y), lty = 2)
+})
+```
 
 ## ggplot2
   * Splits the difference between base and lattice in a number of ways
