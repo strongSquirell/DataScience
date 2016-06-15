@@ -22,10 +22,12 @@ _One dimension_
   * Histograms          (hist(x, col = "", breaks = ); rug(x); abline(median(x)))
   * Density plot        (plot(density(x)))
   * Barplot             (barplot(y))
+
 _Two dimensions_
   * Multiple/overlayed 1-D plots
   * Scatterplots
   * Smooth scatterplots
+
 _> 2 simensions_
   * Overlayed/multiple 2-D plots; coplots
   * Use color, size, shap to add dimensions
