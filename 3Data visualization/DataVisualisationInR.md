@@ -215,4 +215,60 @@ xyplot(y ~ x | f, panel = function(x, y, ...){
   * Superficial similarity to lattice but generally easier/more intuitive to use
   * Default mode makes many choises for you
 
+The Basics:
+  * __qplot(x, y, data, color = z, geom = c("point", "smooth"))__
+    * works much like the plir function in base graphics system
+    * looks for data in a data frame or in the parent enviroment
+    * plots are made up for aestetics (size, shape, color) and geoms (points, lines)
+    * factors are important for indicating subsets of the data; they should be labeled
+    * hides what goes on underneath
+    * ggplot() is the core function and very flexible for doing things qplot cannot do
+```
+qplot(x, y, data, color = z)                                  # subgroups with color
+qplot(x, y, data, geom = c("point", "smooth"), method = "lm") # add a statistic, geom = "density"
+qplot(x, data, fill = drv)                                    # histogram
+qplot(x, y, data, facets = .~z(z~.))                          # facets like pannels in lattice
+qplot(x, y, data, shape = z)                                  # subgroups with shape
+qplot(x, y, data, color = z) + geom_smooth(method = "lm")
+qplot(x, y, data, facets = .~z) + geom_smooth(method = "lm")      
+```
+
+Basic components of a ggplot2 plot
+  * a data frame
+  * aestetic mappings: how data are mapped to color, size
+  * geoms: geometric objects like points, lines, shapes
+  * facets: for conditional plots
+  * stats: statistical transformations like binning, quantiles, smoothing
+  * scales: what scale an aestatic map uses
+  * coorsinate system
+
+Plots are built uo in layers
+  * plot the data
+  * overlay a summary
+  * metadata and annotation
+```
+g <- ggplot(x, y, data)
+p <- g +  geom_point() + geom_smooth(method = "lm", se = FALSE)            # se - confidential interval
+       + facet_grid(. ~ z)
+```
+
+Annotation
+  * Labels: xlab(), ylab(), labs(), ggtitle()
+  * Each of "geom" functions has options to modify
+  * For things that only make sense globally, use theme()
+  * Two standart appearance thenes are included
+    * theme_gray()
+    * theme_bw()
+
+```
+g + geom_points(color = "steelblue", size = 4, alpha = 1/2)
+g + geom_points(aes(color = z), size = 4, alpha = 1/2)                   # aes stands for aestetics
+g + geom_points(aes(color = z), size = 4, alpha = 1/2)
+  + labs(title = "Plot") + labs(x = "", y = "")  
+  + facet_wrap(x ~ z, nrow = 2, ncol = 4) 
+  + theme_bw(base_family = "Times")    
+g + geom_line() + ylim(-3, 3)                                            # adding a limit; outlier missing
+g + geom_line() + coord_cartesian(ylim = c(-3, 3))                       # adding a limit; outlier included
+```
+
 ## Working with color
