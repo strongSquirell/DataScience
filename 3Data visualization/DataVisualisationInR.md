@@ -271,4 +271,105 @@ g + geom_line() + ylim(-3, 3)                                            # addin
 g + geom_line() + coord_cartesian(ylim = c(-3, 3))                       # adding a limit; outlier included
 ```
 
+## Clustering and dimension reduction
+Clustering organized things that are close into groups
+
+_Hierarchical clustering_(deterministic)
+  * An agglomerative approach
+    * find closest two thing
+    * put them together
+    * find the next closest
+  * Requires 
+    * a defined distance
+    * a merging approach
+  * Produces
+    * a tree showing how close things are to each other
+
+How do we define close?
+  * Most important step
+    * Garbage in -> garbage out
+  * Distance or similarity
+    * Continuous - euclidean distance
+    * Continuous - correlation similarity
+    * Binary - manhattan distance
+  * Pick a distance/similarity that makes sense for your problem
+
+```
+x <- rnorm(12)
+y <- rnorm(12)
+dataFrame <- data.frame(x, y)
+distxy <- dist(dataFrame)                                  # calculate distance, important parameters: x, method
+hClustering <- hclust(distxy)
+plot(hClustering)
+
+dataMatrix <- as.matrix(dataFrame)
+heatmap(dataMatrix)                                        # hierarchical cluster analysis on the rows and on the columns
+                                                             of the table
+```
+
+_K-means clustering_(not deterministic)
+  * A partitioning approach
+    * fix a number of clusters
+    * get centroids of each cluster
+    * assign things to closest centroid
+    * recalculate centroids
+  * Requires 
+    * a defined distance metric
+    * a number of clusters
+    * an initial guess as to cluster centroids
+  * Produces
+    * final estimate of cluster centroids
+    * an assignment of each point to clusters
+
+```
+x <- rnorm(12)
+y <- rnorm(12)
+dataFrame <- data.frame(x, y)
+kmeansObj <- kmeans(dataFrame, centers = 3)                       # important parameters: x, centers, iter.max, nstart
+plot(x,y, col = kmeansObj$cluster, pch = 19, cex = 2)
+points(kmeansObj$centers, col = 1:3, pch = 3, cex = 3, lwd = 3)
+```
+
+_Principal components analysis and singular value decomposition_
+
+__SVD__
+If X is a matrix with each variable in a column and each observation in a row then the SVD is a matrix decomposition 
+X = UDV^T
+where the column of U are orthogonal (left singular vectors), the columns of V are orthogonal (right singular vectors) are D is a diagonal matrix (singular values).
+__PCA__
+The principal components are equal to the right singular values if you first scale (substract the mean, divide by the standart deviation) the variables.
+
 ## Working with color
+Default image plots in R
+```
+heat.colors()
+topo.colors()
+```
+
+Color utilities
+  * The __grDevices__ package has two functions
+    * colorRamp: take a palette of colors and return a function that takes value between o and 1, indicating the extremes of the color palette
+    * colorRampPalette: take a palette of colors and return a function that takes integer argument and returns a vector of colors interpolating thr palette
+
+  * These functions take palettes of colors and help to interpolate between the colors
+  * The function colors() list the names of colors you can use in any plotting function
+
+```
+pal <- colorRamp(c("red", "blue"))                            # pal(0) returns 1x3 matrix 255 0 0
+pal(seq(0, 1, len = 10))
+pal <- colorRampPalette(c("red", "blue"))                     # pal(2) returns "#FF0000" 
+```
+
+_RColorBrewer package_  
+There are 3 types of palettes
+  * sequential
+  * diverging
+  * qualitative
+```
+library(RcolorBrewer)
+cols <- brewer.pal(3, "BuGn")
+```
+
+  * The rgb function can be used to produce any color via red, green, blue proportions
+  * Color transparency can be added via the alpha parameter to rgb
+  * The colorspace package can be used for a different control over colors
