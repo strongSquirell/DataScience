@@ -1,4 +1,4 @@
-# Statistics
+ # Statistics
 
 __Descriptive Statistics__ - method of summarizing the information we have collected for an analysis.   
 __Inferential Statistics__ - drawing conclusion about a population on the basis of only limited number of cases.   
@@ -47,3 +47,24 @@ quantile(x)                  # Compute sample quantiles
 range(x)                     # Get minimum and maximum
 (x[i]-mean(x))/sd(x)         # z-score
 ```
+
+_Contingency table_ enabled you to display the relationship between two ordinal or nominal variables. Can be expressed with conditional and marginal proportions. For quantitative variables - scatterplot.
+
+_Pearson`s R_
+  * direction and strength of linear correlation
+(strong/week, positive/negative, linear/curvilinear)
+
+_Regression line_ line with the smallest sum of squared residuals
+
+##### Distributions
+
+_Random variable_ variables whose possible values are numerical outcomes of a random phenomemom: discrete(countable number of distinct values) and continuous(infinite number of possible values)  
+Large sample -> relative frequencies = probabilities  
+_Probability distribution_ a list of probabilities associated with each of the values: discrete(probability mass function) and continuous(probability density function)  
+
+_Continuous uniform_ - outcome with equal density  
+_Exponential_ - time between events; time until an event  
+_Normal_ - values with a bell-shaped distribution (continuous)  
+_Standart normal(Z)_ -standart scores  
+_Binomial approximation_ - number of successes in large number of trials  
+_Poison approximation_ - number of occurrences in a fixed time period   
