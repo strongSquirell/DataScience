@@ -283,3 +283,10 @@ wday(d1, label = TRUE)
 ```
 
 Classes in R for dates: "Date", "POSIXct", "POSIXlt"
+
+Change language in R time
+
+```
+sessionInfo()
+Sys.setlocale("LC_TIME", "C")
+```
