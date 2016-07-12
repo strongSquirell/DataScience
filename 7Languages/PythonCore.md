@@ -141,12 +141,110 @@ def functionname(parameters):
 from itertools import product
 from itertools import permutations
 from itertools import combinations
+from itertools import combinations_with_replacement()
 
 list(product([1, 2, 3], [4, 5]))     # cartesian product
 list(permutations(l, n))
 list(combinations(l, n))
-
+l = [(len(list(cgen)), c) for c,cgen in groupby(s)]
 
 ```
 
 ##### Collections
+
+collections.Counter() A counter is a container that stores elements as dictionary keys, and their counts are stored as dictionary values.
+
+```
+from collections import Counter
+myList = [1,1,2,3,4,5,3,2,3,4,2,1,2,3]
+print Counter(myList).items()
+print Counter(myList).keys()
+print Counter(myList).values()
+Counter(myList)[1]
+```
+
+collections.defaultdict() The defaultdict tool is a container in the collections class of Python. It's similar to the usual dictionary (dict) container, but it has one difference: The value fields' data type is specified upon initialization.
+
+```
+from collections import defaultdict
+d = defaultdict(list)
+d['python'].append("awesome")
+d['something-else'].append("not relevant")
+d['python'].append("language")
+for i in d.items():
+    print i
+```
+
+collections.namedtuple(). They turn tuples into convenient containers for simple tasks
+
+```
+from collections import namedtuple
+Point = namedtuple('Point','x,y')
+pt1 = Point(1,2)
+pt2 = Point(*[3,4])
+dot_product = ( pt1.x * pt2.x ) +( pt1.y * pt2.y )
+print dot_product
+```
+
+collections.OrderedDict() An OrderedDict is a dictionary that remembers the order of the keys that were inserted first. If a new entry overwrites an existing entry, the original insertion position is left unchanged.
+
+```
+ordDict = OrderedDict()
+for i in xrange(int(raw_input())):
+    line = raw_input().split()
+    key = ' '.join(line[:-1])
+    if key not in ordDict: 
+        ordDict[key] = int(line[-1])
+    else:
+        ordDict[key] += int(line[-1])
+```
+
+collections.deque() A deque is a double-ended queue. It can be used to add or remove elements from both ends.
+
+```
+d = deque()
+d.append(1)       #appendleft()
+d.clear()
+d.extend('1')     #extendleft()
+d.count('1')
+d.pop()           #popleft()
+d.remove('1')
+d.reverse()
+d.rotate('3')
+```
+
+##### Date and time
+
+_Calendar Module_
+
+The calendar module allows you to output calendars and provides additional useful functions for them.
+class calendar.TextCalendar([firstweekday])
+This class can be used to generate plain text calendars.
+
+```
+import calendar
+print calendar.TextCalendar(firstweekday=6).formatyear(2015)
+```
+
+##### Exeptions
+
+_ZeroDivisionError_ 
+This error is raised when the second argument of a division or modulo operation is zero.
+
+_ValueError_ 
+This error is raised when a built-in operation or function receives an argument that has the right type but an inappropriate value.
+
+other: https://docs.python.org/2/library/exceptions.html#module-exceptions
+
+_Handling exeptions_
+
+```
+#Code
+try:
+    print 1/0
+except ZeroDivisionError as e:
+print "Error Code:",e
+
+#Output
+Error Code: integer division or modulo by zero
+```
