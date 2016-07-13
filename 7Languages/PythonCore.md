@@ -248,3 +248,23 @@ print "Error Code:",e
 #Output
 Error Code: integer division or modulo by zero
 ```
+
+##### Classes
+```
+class PapayaWhip:  
+    pass                            # do nothing
+```
+
+```
+class Fib:
+    '''iterator that yields numbers in the Fibonacci sequence'''  # docstrings
+    def __init__(self, max):                                      # method is called immediately after an instance of the                                                                     class is created
+        self.max = max   
+```
+
+Special methods:  begin and end with a pair of underscore (_) characters, init, iter, next, reversed, str, class, repr, ... More: http://www.diveintopython3.net/special-method-names.html 
+
+```
+if fib > self.max:
+    raise StopIteration                                          # exit the loop
+```
