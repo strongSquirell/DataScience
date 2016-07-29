@@ -24,7 +24,7 @@ Summarizing a distribution:
 
 _Mode_ - value that occurs most frequently (nominal, ordinal level).  
 _Median_ - the middle value of your observation when arranged from the smallest to the largest.  
-_Mean_ - the sum of all the values divided by the number of observations.  
+_Mean_ -  a weighted average of the possible values, reflecting the fact that all outcomes might not be equally likely.   
 
 __Variability__
   * _range_ - highest value - lowest value
@@ -56,6 +56,42 @@ _Pearson`s R_
 
 _Regression line_ line with the smallest sum of squared residuals
 
+__Law of Large Numbers__ - as the number of randomly drawn observations (n) in a sample increases, the mean of the sample (x bar) gets closer and closer to the population mean µ. 
+
+##### Randomness and Probability
+
+A _random variable_ is a variable whose value is a numerical outcome of a random phenomenon.  
+A discrete random variable X has a finite number of possible values.  
+A continuous random variable X takes all values in an interval. 
+
+Gambler`s fallacy - fals idea that a random phenomenon can be predicted from a series of preceding random phenomena.
+
+The _probability_ of any outcome of a random phenomenon can be defined as the proportion of times the outcome would occur in a very long series of repetitions.
+  
+Two events are _independent_ if the probability that one event occurs on any given trial of an experiment is not affected or changed by the occurrence of the other event.
+Probability models describe, mathematically, the outcome of random processes. They consist of two parts:
+  * S = Sample Space: This is a set, or list, of all possible outcomes
+of a random process. An event is a subset of the sample space.
+  * A probability for each possible event in the sample space S.
+
+Probabilities range from 0 (no chance of the event) to 1 (the event has to happen).  
+Because some outcome must occur on every trial, the sum of the probabilities for all possible outcomes (the sample space) must be exactly 1.  
+Two events A and B are disjoint if they have no outcomes in common and can never happen together. The probability that A or B occurs is then the sum of their individual probabilities.  
+The complement of any event A is the event that A does not occur, written as Ac. 
+Two events A and B are independent if knowing that one occurs does not change the probability that the other occurs.   
+
+We can assign probabilities either:  * empirically - from our knowledge of numerous similar past events
+  * or theoretically - from our understanding of the phenomenon and symmetries in the problem
+Conditional probabilities reflect how the probability of an event can change if we know that some other event has occurred/is occurring.  
+Bayes' theorem is stated mathematically as the following equation:
+
+P(A|B)=frac {P(B|A)P(A)/P(B)
+where A and B are events and P(B) not equals 0.
+
+P(A) and P(B) are the probabilities of observing A and B without regard to each other.
+P(A | B), a conditional probability, is the probability of observing event A given that B is true.
+P(B | A) is the probability of observing event B given that A is true.
+
 ##### Distributions
 
 _Random variable_ variables whose possible values are numerical outcomes of a random phenomemom: discrete(countable number of distinct values) and continuous(infinite number of possible values)  
@@ -64,7 +100,10 @@ _Probability distribution_ a list of probabilities associated with each of the v
 
 _Continuous uniform_ - outcome with equal density  
 _Exponential_ - time between events; time until an event  
-_Normal_ - values with a bell-shaped distribution (continuous)  
+_Normal_ - values with a bell-shaped distribution (continuous), symmetric, characterized by their mean and standart deviation 
 _Standart normal(Z)_ -standart scores  
 _Binomial approximation_ - number of successes in large number of trials  
-_Poison approximation_ - number of occurrences in a fixed time period   
+_Poison approximation_ - number of occurrences in a fixed time period  
+
+__Central limit theorem__ states that, given certain conditions, the arithmetic mean of a sufficiently large number of iterates of independent random variables, each with a well-defined (finite) expected value and finite variance, will be approximately normally distributed, regardless of the underlying distribution  
+_Probability density function_ - probability per unit of the random variable  
