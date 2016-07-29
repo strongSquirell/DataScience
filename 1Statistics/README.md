@@ -1,4 +1,4 @@
- # Statistics
+# Statistics
 
 __Descriptive Statistics__ - method of summarizing the information we have collected for an analysis.   
 __Inferential Statistics__ - drawing conclusion about a population on the basis of only limited number of cases.   
@@ -80,7 +80,8 @@ Two events A and B are disjoint if they have no outcomes in common and can never
 The complement of any event A is the event that A does not occur, written as Ac. 
 Two events A and B are independent if knowing that one occurs does not change the probability that the other occurs.   
 
-We can assign probabilities either:  * empirically - from our knowledge of numerous similar past events
+We can assign probabilities either:  
+  * empirically - from our knowledge of numerous similar past events
   * or theoretically - from our understanding of the phenomenon and symmetries in the problem
 Conditional probabilities reflect how the probability of an event can change if we know that some other event has occurred/is occurring.  
 Bayes' theorem is stated mathematically as the following equation:
