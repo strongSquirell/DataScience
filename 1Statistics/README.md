@@ -58,7 +58,7 @@ _Regression line_ line with the smallest sum of squared residuals
 
 __Law of Large Numbers__ - as the number of randomly drawn observations (n) in a sample increases, the mean of the sample (x bar) gets closer and closer to the population mean µ. 
 
-##### Randomness and Probability
+### Randomness and Probability
 
 A _random variable_ is a variable whose value is a numerical outcome of a random phenomenon.  
 A discrete random variable X has a finite number of possible values.  
@@ -80,12 +80,21 @@ Two events A and B are disjoint if they have no outcomes in common and can never
 The complement of any event A is the event that A does not occur, written as Ac. 
 Two events A and B are independent if knowing that one occurs does not change the probability that the other occurs.   
 
+Probability tree diagram - list of the possibilities.
+
 We can assign probabilities either:  
   * empirically - from our knowledge of numerous similar past events
   * or theoretically - from our understanding of the phenomenon and symmetries in the problem
-Conditional probabilities reflect how the probability of an event can change if we know that some other event has occurred/is occurring.  
-Bayes' theorem is stated mathematically as the following equation:
 
+_Marginal probability_: the probability of an event occurring (p(A)), it may be thought of as an unconditional probability.  It is not conditioned on another event.  Example:  the probability that a card drawn is red (p(red) = 0.5).  Another example:  the probability that a card drawn is a 4  (p(four)=1/13).
+ 
+
+_Joint probability_:  p(A and B).  The probability of event A and event B occurring.  It is the probability of the intersection of two or more events.  The probability of the intersection of A and B may be written p(A ? B). Example:  the probability that a card is a four and red =p(four and red) = 2/52=1/26.  (There are two red fours in a deck of 52, the 4 of hearts and the 4 of diamonds).
+ 
+
+_Conditional probability_:  p(A|B) is the probability of event A occurring, given that event B occurs. Example:  given that you drew a red card, what’s the probability that it’s a four (p(four|red))=2/26=1/13.  So out of the 26 red cards (given a red card), there are two fours so 2/26=1/13.
+Conditional probabilities reflect how the probability of an event can change if we know that some other event has occurred/is occurring.  
+Bayes' theorem is stated mathematically as the following equation:  
 P(A|B)=frac {P(B|A)P(A)/P(B)
 where A and B are events and P(B) not equals 0.
 
@@ -93,11 +102,19 @@ P(A) and P(B) are the probabilities of observing A and B without regard to each 
 P(A | B), a conditional probability, is the probability of observing event A given that B is true.
 P(B | A) is the probability of observing event B given that A is true.
 
-##### Distributions
+Permutation
+  * repetition allowed - n^r
+  * repetition not allowed - n!/(n-r)! 
+Combination
+  * repetition allowed - n!/(r!(n-r)!)
+  * repetition not allowed - (n+r-1)!/(r!(n-1)!) 
+
+### Distributions
 
 _Random variable_ variables whose possible values are numerical outcomes of a random phenomemom: discrete(countable number of distinct values) and continuous(infinite number of possible values)  
 Large sample -> relative frequencies = probabilities  
 _Probability distribution_ a list of probabilities associated with each of the values: discrete(probability mass function) and continuous(probability density function)  
+_Probability density function_ - probability per unit of the random variable  
 
 _Continuous uniform_ - outcome with equal density  
 _Exponential_ - time between events; time until an event  
@@ -107,4 +124,4 @@ _Binomial approximation_ - number of successes in large number of trials
 _Poison approximation_ - number of occurrences in a fixed time period  
 
 __Central limit theorem__ states that, given certain conditions, the arithmetic mean of a sufficiently large number of iterates of independent random variables, each with a well-defined (finite) expected value and finite variance, will be approximately normally distributed, regardless of the underlying distribution  
-_Probability density function_ - probability per unit of the random variable  
+
