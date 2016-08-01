@@ -95,7 +95,7 @@ _Joint probability_:  p(A and B).  The probability of event A and event B occurr
 _Conditional probability_:  p(A|B) is the probability of event A occurring, given that event B occurs. Example:  given that you drew a red card, what’s the probability that it’s a four (p(four|red))=2/26=1/13.  So out of the 26 red cards (given a red card), there are two fours so 2/26=1/13.
 Conditional probabilities reflect how the probability of an event can change if we know that some other event has occurred/is occurring.  
 Bayes' theorem is stated mathematically as the following equation:  
-P(A|B)=frac {P(B|A)P(A)/P(B)
+P(A|B)=P(B|A)P(A)/P(B)
 where A and B are events and P(B) not equals 0.
 
 P(A) and P(B) are the probabilities of observing A and B without regard to each other.
