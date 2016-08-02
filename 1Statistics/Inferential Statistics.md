@@ -1,6 +1,6 @@
 Statistical inference methods:
   * estimation
-  * test hypothesis 
+  * test hypothesis   
 _Estimation_  
   * Point-estimate - single number that is  best quess for the population parameter
   * Interval estimate - range of values within which we espect the parameter to fall
@@ -66,7 +66,112 @@ Plan:
   * Interpret finding
 
 _Errors_:
-  * Type I - hypothesis is true and you decide to reject it(alpha)
-  * Type II - hypothesis is false and you not decide to reject it(beta)  
+  * Type I - hypothesis is true and you decide to reject it(alpha) FP
+  * Type II - hypothesis is false and you not decide to reject it(beta) FN  
 Decrease significant level - decrease the probability of making a type I error, but increase the probability of making a type II error  
 _power_ - probability of rejecting H_0 giben it is false (1-beta) 
+larger alpha/sample/sample - more power  
+test type: one-side has more power than two-side, parametric vs non-parametric 
+
+### Comparing two groups
+
+__Independent__  
+_Z -test for independent proportions_:
+  * binary response variable
+  * binary independent variable   
+Assumptions:
+  * independence(randon assignment and/or selection)
+  * sufficient number of observation(violation - Fisher`s exact test)
+
+Hypothesis:  
+H_0: p1 = p2  
+H_a: p1 != p2, >, <.  
+z=(p1-p2)/sqrt(p(1-p)(1/n1+1/n2)), p = (n1p1+n2p2)/(n1+n2)
+p <= alpha -> reject H_o
+
+CI = p1-p2 +- z_(alpha/2)sqrt(p1(1-p1)/n1+p2(1-p2)/n2)
+
+```
+prop.test(x, n, p = NULL,
+          alternative = c("two.sided", "less", "greater"),
+          conf.level = 0.95, correct = TRUE)
+```
+
+_t-test for independent means_:
+  * quantitative response variable
+  * binary independent variable   
+Assumptions:
+  * independence(randon assignment and/or selection)
+  * normally distributed(violation - no proplem if large sample or 2-sided test)  
+Hypothesis:  
+H_0: m1 = m2  
+H_a: m1 != m2, >, <.  
+t = (m1-m2)/sqrt(s1^2/n1+s2^2/n2), df = (s1^2/n1+s2^2/n2)^2/(1/(n1-1) (s1^2/n1)^2+1/(n2-1) (s2^2/n2)^2)
+
+if equal variances - larger df, smaller se (assumption: larger sd/smaller sd < 2)
+
+CI = x1-x2 +- t_(alpha/2)SE
+
+```
+t.test(x, y = NULL,
+       alternative = c("two.sided", "less", "greater"),
+       mu = 0, paired = FALSE, var.equal = FALSE,
+       conf.level = 0.95, ...)
+```
+
+__Dependent__
+
+_McNewar`a test for dependent proportions_
+  * binary response variable
+  * binary independent variable
+  * related/paired samples(same cases - different time, matched pairs)   
+Assumptions:
+  * sufficient observation
+  * 1-sided: n01+n10 >= 30  
+Hypothesis:  
+H_0: p1 = p2  
+H_a: m1 != m2, >, <.  
+z = (n01-n10)/sqrt(n01+n10)
+
+```
+mcnewar.test(matrix)
+```
+
+_t-test for dependent means_:
+  * quantitative response variable
+  * binary independent variable   
+  * related/paired samples
+Assumptions:
+  * normally distributed(violation - no proplem if large sample or 2-sided test)  
+Hypothesis:  
+H_0: md=0  
+H_a: md != 0, >, <.  
+t = md/sd/sqrt(n), df = n-1
+
+```
+t.test(x,y,data,paired=T)
+```
+__Controling variables__
+
+How to control variable(if related to both independent and dependent variable):
+  * experimental
+  * statistical
+
+Spurious relation can be explain by common cause  
+Experimental control:
+  * randomization
+  * keeping constant  
+Statistical control 
+  * measure and check at every level of control variable(if it behaves the same at all levels - var does not provide alternative explanation)
+
+Control variables:
+  * confounder - common cause in both dependent and independent var 
+  * moderator - relation becomess weaker or stronger dependent on moderator
+  * mediator - indep var influence dep var through this mediator
+
+Simpson`s paradox - direction indep var ~ dep var changes due to control var
+  
+### Cathegorical association
+
+
+### Non-parametric tests
