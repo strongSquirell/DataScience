@@ -172,6 +172,58 @@ Control variables:
 Simpson`s paradox - direction indep var ~ dep var changes due to control var
   
 ### Cathegorical association
+Relation between cathegorical variables:
+  * contingency table
+  * joint/marginal/conditional probabilities
+
+Correlation coefficient - quantify relation between 2 vars. 
+ 
+Marginal probability: the probability of an event occurring (p(A)), it may be thought of as an unconditional probability.  It is not conditioned on another event.  Example:  the probability that a card drawn is red (p(red) = 0.5).  Another example:  the probability that a card drawn is a 4  (p(four)=1/13).
+ 
+Joint probability:  p(A and B).  The probability of event A and event B occurring.  It is the probability of the intersection of two or more events.  The probability of the intersection of A and B may be written p(A ? B). Example:  the probability that a card is a four and red =p(four and red) = 2/52=1/26.  (There are two red fours in a deck of 52, the 4 of hearts and the 4 of diamonds).
+ 
+Conditional probability:  p(A|B) is the probability of event A occurring, given that event B occurs. Example:  given that you drew a red card, what’s the probability that it’s a four (p(four|red))=2/26=1/13.  So out of the 26 red cards (given a red card), there are two fours so 2/26=1/13.
+
+_Chi-squared for cathegorical var independence(association)_:  
+Assumptions:
+  * random sample or randomized experiment
+  * cathegories are exclusive
+  * cathegories are exhaustive
+  * sample large  
+Requirement: each cathegory has frequency equals at least 5  
+H_0: variables X and Y are independent  
+H_a: variables X and Y are dependent
+
+expected joint frequencies = (nrX + nrY)/total nr  
+Chi-squared = sum((observed-expected)^2/expected)  
+df = (r-1)(c-1), r-row, c-column  - mean  
+more degreed of freedom - less skewed, wider, higher values for chi-squared  
+p-value is small -> reject H_0
+
+Strength of association between 2 nominal vars - Cramer`s V = sqrt( chi-squared/(nm)), n - total number of counts, m = min(r,c)-1  
+table less square -> V higher without evidence of association
+
+Pattern of association: residual/se, se = sqrt(res(1-prob_c)(1-prob_r))  
+Two observed distribution can be compared
+
+_Chi-squared test for goodness of fit_:  
+compare an observed frequency distribution with a frequency distribution you expect on a basis of a theory  
+H_0: observed = expected  
+H_a: observed != expected
+
+Chi-squared = sum((observed-expected)^2/expected), df = N-1  
+large Chi-squared, small p-value, reject H_0
+
+_Fishers`s exact test_(if sample is small):  
+|   |  A  |  B  |
+|---|:---:|----:|
+| 1 |  a  |  b  |
+| 2 |  c  |  d  |
+
+H_0: Observed count = expected count  
+H_a: Observed count != expected count  
+k possible configurations (+-1)
+probability of specific configuration = (a+b)!(c+d)!(a+c)!(b+d)!/(n!a!b!c!d!)
 
 
 ### Non-parametric tests
