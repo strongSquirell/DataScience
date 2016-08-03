@@ -215,6 +215,7 @@ Chi-squared = sum((observed-expected)^2/expected), df = N-1
 large Chi-squared, small p-value, reject H_0
 
 _Fishers`s exact test_(if sample is small):  
+
 |    | A | B |
 |----|---|---|
 | I  | a | b |
