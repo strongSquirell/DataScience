@@ -215,15 +215,15 @@ Chi-squared = sum((observed-expected)^2/expected), df = N-1
 large Chi-squared, small p-value, reject H_0
 
 _Fishers`s exact test_(if sample is small):  
-|   |  A  |  B  |
-|---|:---:|----:|
-| 1 |  a  |  b  |
-| 2 |  c  |  d  |
+|    | A | B |
+|----|---|---|
+| I  | a | b |
+| II | c | d | 
 
 H_0: Observed count = expected count  
 H_a: Observed count != expected count  
 k possible configurations (+-1)
 probability of specific configuration = (a+b)!(c+d)!(a+c)!(b+d)!/(n!a!b!c!d!)
 
-
 ### Non-parametric tests
+- do not assume that the population distribution has a particular form 
