@@ -226,5 +226,140 @@ H_a: Observed count != expected count
 k possible configurations (+-1)
 probability of specific configuration = (a+b)!(c+d)!(a+c)!(b+d)!/(n!a!b!c!d!)
 
+__Analysis of variance(ANOVA)__:  
+- compare more than 2 means  
+- quantitative response variable  
+- cathegorical independent variables or factors(groups/conditions/levels)
+
+_One-way ANOVA_:  
+  * 1 independent variable  
+Error rate: propapility of falsely reject H_0, alpha  
+Family-wise error: probability of at least one test falsely reject H_0, FWER = N*alpha  
+  * assumption: equal population variances
+  * trick: estimate population variances in two ways: method 1 - always good estimate, method 2 - good if means same, overestimate if means differ 
+
+within-group variance  
+MS(within)= SS(within)/(n-g)  
+
+between-group variance  
+MS(between)= sum(nj(yj-y)^2)/(g-1)  
+
+F = MS(within)/MS(between)  
+p <= alpha -> reject H_0  
+
+_ANOVA overall F-test_:  
+Assumptions:  
+  * independent observations(dependent by design - repeated measures ANOVA)
+  * normally distributed response variable(violated? ok if nj>=10, else - non-parametric)
+  * homogeneity of variances(same population variance in all groups)(violated? ok if group sizes are equal, else - ok if largest sd < 2*smallest sd)
+
+H_0: all means is equal  
+H_a: at least one mean differs  
+F = MSb/MSw  
+
+_Pairwise comparison_:  
+- t-test  
+- confidence interval  
+Post-hoc comparison - no clear directional hypothesis - two-sided t-test or confidential interval  
+Planned comparison  
+
+Number of comparisons: g(g-1)/2  
+Assumptions are the same  
+
+Fisher`s least significant difference(LSD):
+t=(yj-yk)/sqrt(SSw/(n-g))sqrt(1/nj+1/nk), dfw = n-g, dfb = n-1  
+Bonferroni: connected alpha = desired alpha/ number of comparisons, FWER < overall alpha  
+Tukey`s Honestly significant difference(HSD): FWER = desired overall alpha  
+
+_Factorial ANOVA_:  
+- two or more factors  
+- one dependent variable  
+
+independent variables - factor A, factor B, interaction - factor AB  
+F1 = MS(factorA)/MS(within), F2 = MS(factorB)/MS(within)  
+Interaction: if the effect of one factor influenced the effect of other factor (diffrence between means on one factor are the same for each level of the other factor)
+F = MS(factorA*factorB)/MS(within)  
+SS total = SS factorA + SS factorB + SS factorA*factorB + SS within(error)
+
 ### Non-parametric tests
-- do not assume that the population distribution has a particular form 
+- do not assume that the population distribution has a particular form  
+- small sample size  
+- wrong measurement level  
+- no parametric technique available
+  * less assumptions
+  * measurement level
+  * insensitive to outliers
+  * sometimes lower power
+
+Example:
+  * skewed distribution 
+  * limited range
+  * limited sample size
+
+Rank based methods
+  * hypothesis test on median
+  * rank-based correlation coefficient  
+parametric test + violating assumptions -> wrong conclusion
+
+_The sign test_: 
+- small sample  
+- ordinal measurement  
+- average <-> theoretical value
+
+H_0: fraction = theoretical value, P(X>Y)=p 
+H_1: fraction != theoretical value   
+expected probability -> one-sample binomial test
+
+Difference between observation -> binomila variable -> proportion test  
+
+_Wilcoxon signed ranks test_:  
+(non-parametric equvalent to the one sample t-test)  
+  * random asssignment
+  * symmetric distribution  
+H_0: median = theoretical value  
+1. differences  
+2. absolute differences(rank)
+3. W - sum of positives, N - number of nonzero values
+4. find P(W<=w)
+  
+_Wilcoxon(Mann-Whitney) test for two samples_:
+  * ordinal and numerical data
+  * powerful
+  * difference in medians -> assume symmetric
+  * difference in mean 
+H_0: median1 = median2  
+<= 10 ases in both group - statistical table  
+> 10 - normal approximation  
+Wx - rank-sum of smallest group 
+N = m+n,  
+x = m(N+1)/2  
+sigma = sqrt(mn(N+1)/12)  
+z = (Wx - x)/sigma  
+
+_Krushka-Wallis test for several groups_:  
+compare mean rank among groups  
+1. rank all observations  
+2. ties: mean over tied ranks
+3. all observations: mean rank R
+4. each group i: mean group rank Ri
+5. H=12/N(N+1)sum(ni(R-Ri)^2) ~ chi-squared(g-1)
+
+_Spearman correlation_:  
+Correlation coeficient = standardized measure of association  
+cor(X,Y)=cor(X,aY)=cor(X,aY+b)  
+Pearson`s correlation(R)(product moment correlation) measures linear association between two numerical variables, assumes two variables are bivariate, normally distributed, sensative to outliers and skewness  
+Spearman correlation - strength of monotonic relation, robust to outliers, ordinal variable, non-normal, non-linear relationship  
+1. Rank variables  
+2. Calculate Pearson`s correlation on ranks  
+Correlation of 0 does not imply absence of relationship  
+less sensitive to outliers but less powerful  
+
+_The run test_:  
+test for randomness  
+run - is a succession of identical values or labels which are followed and proceeded by different value or labels  
+don`t rearange the data  
+few runs - trend, clustering  
+many runs - structural fluctation  
+m or n < 10 -> critical values of the runs from table  
+m or n >= 10 -> mu = 2mn/N +1, sigma = sqrt(2mn(2mn-N)/N^2(N-1)), z=(r-mu)/sigma
+
