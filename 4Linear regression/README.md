@@ -9,7 +9,7 @@ learning algorithm
         |    
 input -> h -> output  
 
-Assumption:  
+Assumptions:  
   * linearity: for each predictor xj, xj and y linearly related for any combination of other x
   * homoscedasticity: variability of residuals for each predictor is the same over the entire range of values
   * independence of errors: residuals unrelated
@@ -35,7 +35,7 @@ y - output variable, target variable
 
 h = b0+b1x  
 Cost function:  
-J(b0,b1) = 1/2n sum(h(xi)-yi)^2,  
+J(b0,b1) = 1/2n sum(h(xi)-yi)^2,   
 J - convex -> local extremum -> global extremum  
 _Gradient descent_:  
   * start with some b0, b1
@@ -46,10 +46,10 @@ if learning rate is too large, gradient descent can overshoot the minimum
 
 ### Multivariate linear regression  
 m - number of features  
-h = b0 + sum(bi*xi) = B`x, m features  
+h = b0 + sum(bi*xi) = B^Tx, m features  
 H_0: bi = 0, i > 0   
-Multiple correlation R-squares(explained variation) = sum(yi-y`)(yi(hat)-y(hat)`)/SySy(hat),  
-(total sum of squars - residuals sum of squares)/ total sum of squares, sum(yi(hat)-y`)^2/sum(yi-y`)^2  
+Multiple correlation R-squares(explained variation) = sum(yi-y^T)(yi(hat)-y(hat)^T)/SySy(hat),  
+(total sum of squars - residuals sum of squares)/ total sum of squares, sum(yi(hat)-y^T)^2/sum(yi-y^T)^2  
 Tests: 
   * Overall test: F = explained variance/(k-1)/error variance/(n-k), df1 = k-1, df2 = n-k (k=m+1)
   * Individual t-test: H_0: bi=0, controlling for other preditors, t = bi/SE, df = n-k 
@@ -67,7 +67,7 @@ if it increase -> try smaller a, =0.001, 0.01, 0.1
 
 _Normal equation_:  
 d/dbj J= 0, for all j  
-b = (X`X)^{-1}X`y
+b = (X^TX)^{-1}X^Ty
 
 | GD                   | NE                      |
 |----------------------|-------------------------|
