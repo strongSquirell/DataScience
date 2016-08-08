@@ -1,14 +1,5 @@
 # Linear regression
-Learning algorithm:
-  * supervised learning - labeled output (regression, classification)
-  * unsupervised learning - unlabeled output (clustering(organize computing clusters, social network analysis, market segmentation, astronomical data analysis))
-
-   training set  
-        |  
-learning algorithm   
-        |    
-input -> h -> output  
-
+  
 Assumptions:  
   * linearity: for each predictor xj, xj and y linearly related for any combination of other x
   * homoscedasticity: variability of residuals for each predictor is the same over the entire range of values
