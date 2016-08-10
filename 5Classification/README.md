@@ -42,3 +42,40 @@ hi(x) = P(y=i|x,B)
 train a logistic regression classifier hi for each class i to predict the probability that y=i
 max hi(x)
 
+_Multiclass classification(all-vs-all)_  
+Build N(N?1) classifiers, one classifier to distinguish each pair of classes i and j. Let fij be the classifier where class i were positive examples and class j were negative. Note fji = ?fij. Classify using  
+f(x) = arg max sum(fij(x))
+
+### Naive Bayes
+
+The Naive Bayes Classifier technique is based on so-called Bayesian theorem and is partikularly suited when the dimensionality of the inputs is high.
+
+Input:  
+a test set  
+a fixed set of classes C  
+Output:  
+a predicted class c in C  
+
+  * Simple (“naive”) classification  method based on Bayes rule	
+  * Relies on very simple representation of document  
+P(c|d) = P(d|c)P(c)/P(d) 
+
+c_map = argmax P(d|c)P(c) = argmax(P(x1,...,xn|c)P(c))   
+MAP is “maximum a posteriori” = most likely class  
+Document d represented as features x1..xn  
+Assumption:  
+  * Assume position doesn`t mater
+  * Assume the feature probabilities P(xi|cj) are independenr given the class c.  
+P(x1,...,xn|c)= P(x1|c)P(x2|c)...P(xn|c)  
+
+Learning:  
+1. Maximum likelihood estimates
+  * simply use the frequencies in the data
+  * create a mega-document for topic j by concatenating all docs in this topic
+  * problem: zero probabilities cannot be conditioned away  
+P(xi|c) = (count(xi,c)+1)/sum(count(x,c)+1)  
+
+• Very Fast, low storage requirements  	
+• Robust to Irrelevant Features Irrelevant Features   
+• Very good in domains with many equally important features  		
+• Opimal if the	independence assumpions	hold  
