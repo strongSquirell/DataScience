@@ -137,8 +137,13 @@ def dataPrep(data, digest):
 
 def main():
     # Load data
+<<<<<<< HEAD
     train_data = pd.read_csv('../input/train.csv', header=0)
     test_data = pd.read_csv('../input/test.csv', header=0)
+=======
+    train_data = pd.read_csv('D:/DataScience0/titanic/RawData/input/train.csv', header=0)
+    test_data = pd.read_csv('D:/DataScience0/titanic/RawData/input/test.csv', header=0)
+>>>>>>> a57fd894ad474cbd981cb9a46e8ca6b4372c75a9
     all_data = pd.concat([train_data, test_data]).reset_index(drop=True)
 
     # First exploration
