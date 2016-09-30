@@ -3,17 +3,17 @@ This folder will contain information about supervised learning - classification.
 
 _Multiclass classification_  
   * one-vs-all - strategy involves training a single classifier per class, with the samples of that class as positive samples and all other samples as negatives. This strategy requires the base classifiers to produce a real-valued confidence score for its decision, rather than just a class label; discrete class labels alone can lead to ambiguities, where multiple classes are predicted for a single sample.
-  * one-vs-one - eduction, one trains K (K ? 1) / 2 binary classifiers for a K-way multiclass problem; each receives the samples of a pair of classes from the original training set, and must learn to distinguish these two classes. At prediction time, a voting scheme is applied: all K (K ? 1) / 2 classifiers are applied to an unseen sample and the class that got the highest number of "+1" predictions gets predicted by the combined classifier.
+  * one-vs-one - eduction, one trains K (K - 1) / 2 binary classifiers for a K-way multiclass problem; each receives the samples of a pair of classes from the original training set, and must learn to distinguish these two classes. At prediction time, a voting scheme is applied: all K (K - 1) / 2 classifiers are applied to an unseen sample and the class that got the highest number of "+1" predictions gets predicted by the combined classifier.
 
 ### Logistic regression
-y º {0,1} - binary classification problem  
+y in {0,1} - binary classification problem  
 0: 'Negative Class'  
-0: 'Positive Class'  
+1: 'Positive Class'  
 Threshold classifier output h at 0.5:
   * if h > 0.5 predict y = 1
   * if h < 0.5 predict y = 0
 
-Sigmoid/logistic function: h=g(Bx), g(t) = 1/(1+e^{-z})  
+Sigmoid/logistic function: h=g(Bx), g(t) = 1/(1+e^{-t})  
 h = estimated probability that y = 1 on input x , P(y=1|x,B) 
 
 Decision boundary:  
@@ -43,7 +43,7 @@ train a logistic regression classifier hi for each class i to predict the probab
 max hi(x)
 
 _Multiclass classification(all-vs-all)_  
-Build N(N?1) classifiers, one classifier to distinguish each pair of classes i and j. Let fij be the classifier where class i were positive examples and class j were negative. Note fji = ?fij. Classify using  
+Build N(N-1) classifiers, one classifier to distinguish each pair of classes i and j. Let fij be the classifier where class i were positive examples and class j were negative. Note fji = -fij. Classify using  
 f(x) = arg max sum(fij(x))
 
 ### Naive Bayes

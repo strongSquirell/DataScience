@@ -1,11 +1,13 @@
-Statistical inference methods:
+_Statistical inference methods_:
   * estimation
   * test hypothesis   
+
 _Estimation_  
   * Point-estimate - single number that is  best quess for the population parameter
   * Interval estimate - range of values within which we espect the parameter to fall
 
 _Confidence level_ - probability that interval contains population parameter (most common 0.95)
+
 _Confidence interval_  
   * with known population sd - x +- z_asigma_x
   * with unknown population sd - x +- t_aSE, SE- standart error = s/sqrt(n)
@@ -42,7 +44,7 @@ Failing to reject your null hypothesis doesn`t mean that the null hypothesis is 
 
 Proportions:    
 _test statistic_ - number of standart errors sample value is removed from H_0 value, z = (p- pi_0)/se_0  
-_p -value_ shows that finding a sample proportion of x if the population proportion y is p% probable 
+_p -value_ shows that finding a sample proportion of x if the population proportion y is p% probable   
 _significance level_ - how small p-value needs to be to reject H_0
 
 alpha = 0.05
@@ -69,8 +71,8 @@ _Errors_:
   * Type I - hypothesis is true and you decide to reject it(alpha) FP
   * Type II - hypothesis is false and you not decide to reject it(beta) FN  
 Decrease significant level - decrease the probability of making a type I error, but increase the probability of making a type II error  
-_power_ - probability of rejecting H_0 giben it is false (1-beta) 
-larger alpha/sample/sample - more power  
+_power_ - probability of rejecting H_0 given it is false (1-beta) 
+larger alpha/sample - more power  
 test type: one-side has more power than two-side, parametric vs non-parametric 
 
 ### Comparing two groups
@@ -347,10 +349,10 @@ compare mean rank among groups
 _Spearman correlation_:  
 Correlation coeficient = standardized measure of association  
 cor(X,Y)=cor(X,aY)=cor(X,aY+b)  
-Pearson`s correlation(R)(product moment correlation) measures linear association between two numerical variables, assumes two variables are bivariate, normally distributed, sensative to outliers and skewness  
+Pearsons correlation(R)(product moment correlation) measures linear association between two numerical variables, assumes two variables are bivariate, normally distributed, sensative to outliers and skewness  
 Spearman correlation - strength of monotonic relation, robust to outliers, ordinal variable, non-normal, non-linear relationship  
-1. Rank variables  
-2. Calculate Pearson`s correlation on ranks  
+1. Rank variables    
+2. Calculate Pearsons correlation on ranks    
 Correlation of 0 does not imply absence of relationship  
 less sensitive to outliers but less powerful  
 

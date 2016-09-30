@@ -64,7 +64,7 @@ A _random variable_ is a variable whose value is a numerical outcome of a random
 A discrete random variable X has a finite number of possible values.  
 A continuous random variable X takes all values in an interval. 
 
-Gambler`s fallacy - fals idea that a random phenomenon can be predicted from a series of preceding random phenomena.
+Gambler`s fallacy - false idea that a random phenomenon can be predicted from a series of preceding random phenomena.
 
 The _probability_ of any outcome of a random phenomenon can be defined as the proportion of times the outcome would occur in a very long series of repetitions.
   

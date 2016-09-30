@@ -24,44 +24,43 @@ _Implementation_:
 • key problem: choosing best rule to split on - idea: choose rule that leads to greatest increase in “purity”
 
 Algorithms:  
-? ID3 (Iterative Dichotomiser 3)  
-? C4.5  
-? CART (Classification and Regression Trees)  
-? Random Forest (many decision trees)  
+• ID3 (Iterative Dichotomiser 3)  
+• C4.5  
+• CART (Classification and Regression Trees)  
+• Random Forest (many decision trees)  
 
-__ID3__
-? Core in other decision tree algorithms  
-? Constructs the tree top down  
-? Greedy search algorithm  (Finds local minimum at each iteration)
-? Calculates information gain  
+__ID3__  
+• Core in other decision tree algorithms  
+• Constructs the tree top down  
+• Greedy search algorithm  (Finds local minimum at each iteration)
+• Calculates information gain  
 
 Entropy(S) = sum(-pi log_2 pi), pi - proportion of S belonging to class i  
-Gain(S,A) = Entropy(S) - sum(Sv/S *Entropy(Sv)), Sv - examples belonging to class S, entropy after partition with attribute A
-? Information gain indicates reduction of entropy due to attribute partitioning  
-? ID3 calculates information gain at each step  
+Gain(S,A) = Entropy(S) - sum(Sv/S *Entropy(Sv)), Sv - examples belonging to class S, entropy after partition with attribute A  
+• Information gain indicates reduction of entropy due to attribute partitioning  
+• ID3 calculates information gain at each step  
 
 Advantages:  
-? Can be visualized  
-? Computation complexity is small  
-? Robust to noise  
-? Can take wide range of data  
+• Can be visualized  
+• Computation complexity is small  
+• Robust to noise  
+• Can take wide range of data  
 Disadvantages:  
-? Tend to overfit  
+• Tend to overfit  
 
-To avoid overfitting
-? Use separate training and evaluation
-datasets.
-? Consider using only the key features.
-? Limit number of branches
+To avoid overfitting  
+• Use separate training and evaluation
+datasets.  
+• Consider using only the key features.  
+• Limit number of branches
 
 __Random Forest__  
 Algorithm  
-? Ensemble: use multiple models for prediction  
-? Constructs a number of trees with random variations  
-? Incorporates bagging  
-? All trees predict by voting  
+• Ensemble: use multiple models for prediction  
+• Constructs a number of trees with random variations  
+• Incorporates bagging  
+• All trees predict by voting  
 
-? Good for predicting complex datasets  
-? Usually doesn’t overfit  
-? Computationally slow.   
-
+• Good for predicting complex datasets  
+• Usually doesn’t overfit  
+• Computationally slow.   

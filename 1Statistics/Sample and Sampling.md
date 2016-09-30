@@ -22,12 +22,12 @@ __Random multi-stage cluster sample__
 __Stratified random sample__
   * divide a population into separate groups, which you call strata
   * select a simple random sample from each strata
-  * obtaine sample
+  * obtain sample
 
 __Bigger is better__
 but bigger sample can never make up for a bad sampling procedure
 
-_Sample distributio of the sample mean_ is the distribution that you get if you draw an infinite number of samples from your population and compete the mean of all collected sample means.
+_Sample distribution of the sample mean_ is the distribution that you get if you draw an infinite number of samples from your population and compute the mean of all collected sample means.
 
 _Central limit theorem_ provided that the sample size is sufficiently large, the sample distribution of the sample mean has an approximately normal distribution
 
@@ -42,9 +42,9 @@ __Sample size__
   * magnitute of desired margin of error(smaller margin - larger sample)
   * confidence level                    (larger         - larger)
   * variability of data                 (larger         - larger)
-    * _mean_
-n = sigma^2*z^2/m^2
+    * _mean_  
+n = sigma^2*z^2/m^2  
 sigma - from educated guess or previous research
-    * _proportion_
-n = p(1-p)*z^2/m^2
+    * _proportion_  
+n = p(1-p)*z^2/m^2  
 p -  from educated guess or previous research or 0.25
